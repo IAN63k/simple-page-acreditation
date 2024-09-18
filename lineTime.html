@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200vh;
+        width: 100%;
+        background-color: #636363;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    }
+
+    .container__line {
+        position: relative;
+        width: 450px;
+        max-height: 300px;
+        height: auto;
+        background-color: #f1f1f1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+        justify-content: flex-start;
+        align-items: flex-start;
+        border-radius: 10px;
+
+        a {
+            color: #00aec6;
+            text-decoration: none;
+        }
+    }
+
+    .line__age {
+        color: #00aec6;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .wrapper__timeLine {
+        display: flex;
+        width: 100%;
+        padding: 15px;
+        flex-direction: column;
+    }
+
+    .left_line {
+        left: 520px;
+    }
+
+    .line_current {
+        position: absolute;
+        width: 10px;
+        height: 100%;
+        background-color: #f1f1f1;
+        left: 495px;
+        border-radius: 5px;
+    }
+
+    .line_scroll {
+        position: absolute;
+        width: 10px;
+        height: 10%;
+        background-color: #000;
+        left: 495px;
+        border-radius: 5px;
+    }
+
+    .picker_right {
+        position: absolute;
+        right: -19px;
+        width: 0px;
+        height: 0px;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        border-left: 20px solid #f1f1f1;
+    }
+
+    .picker_left {
+        position: absolute;
+        left: -19px;
+        width: 0px;
+        height: 0px;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        border-right: 20px solid #f1f1f1;
+    }
+
+    .calendar__timeLine-left {
+        position: absolute;
+        top: 0;
+        left: -52px;
+        z-index: 10;
+        width: 34px;
+        height: 34px;
+        background-color: #00aec6;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+    }
+</style>
+
+<body>
+    <div class="wrapper__timeLine">
+        <div class="container__line">
+            <span class="picker_right"></span>
+            <figure></figure>
+            <h2 class="line__age">2018</h2>
+            <p>La Institución toma la decisión de iniciar su ruta hacia la acreditación.</p>
+        </div>
+        <div class="container__line left_line">
+            <span class="picker_left"></span>
+            <figure class="calendar__timeLine-left">
+                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M21 10H3M16 2V6M8 2V6M7.8 22H16.2C17.8802 22 18.7202 22 19.362 21.673C19.9265 21.3854 20.3854 20.9265 20.673 20.362C21 19.7202 21 18.8802 21 17.2V8.8C21 7.11984 21 6.27976 20.673 5.63803C20.3854 5.07354 19.9265 4.6146 19.362 4.32698C18.7202 4 17.8802 4 16.2 4H7.8C6.11984 4 5.27976 4 4.63803 4.32698C4.07354 4.6146 3.6146 5.07354 3.32698 5.63803C3 6.27976 3 7.11984 3 8.8V17.2C3 18.8802 3 19.7202 3.32698 20.362C3.6146 20.9265 4.07354 21.3854 4.63803 21.673C5.27976 22 6.11984 22 7.8 22Z"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </figure>
+            <h2 class="line__age">2019 - 2020</h2>
+            <p>Construcción y radicación del <a href=""> Documento de Apreciación de Condiciones Iniciales, DACI</a></p>
+        </div>
+        <div class="container__line">
+            <span class="picker_right"></span>
+            <h2 class="line__age">2020</h2>
+            <p>Preparación interna, visita de Pares Colaborativos y visita del CNA.</p>
+        </div>
+        <div class="container__line left_line">
+            <span class="picker_left"></span>
+            <h2 class="line__age">2018</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, aspernatur!</p>
+        </div>
+        <div class="line_current"></div>
+        <div class="line_scroll"></div>
+
+    </div>
+</body>
+
+<script>
+
+    const line = document.querySelector('.line_current');
+    const lineScroll = document.querySelector('.line_scroll');
+
+    window.addEventListener('scroll', () => {
+        let scroll = window.scrollY;
+        let height = document.body.scrollHeight - window.innerHeight;
+        let percent = (scroll / height) * 100;
+        // line.style.top = `${percent}%`;
+        lineScroll.style.height = `${percent}%`;
+    });
+
+</script>
+
+</html>

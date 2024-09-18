@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagína acreditación</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<style>
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f2f2f2;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+
+.route-contenedor {
+    max-width: 800px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-route-card {
+    width: 100%;
+}
+
+.title-route-card {
+    margin-bottom: 20px; 
+	text-align: left;
+	color: gray;
+}
+
+.route-img-card {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px; 
+}
+
+.route-img-card:hover {
+	transform: scale(1.05);
+}
+
+.route-card {
+    display: flex;
+    align-items: center;
+    margin: 15px 0; 
+    padding: 20px;
+    background: #fff;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.route-card:hover {
+    transform: translateY(-5px); 
+}
+
+.card-number {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background-color: #00a9b7;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.card-content h2 {
+    color: #00a9b7; 
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+
+@media screen and (max-width: 700px) {
+    .route-contenedor {
+        width: 100%;
+    }
+
+    .route-card {
+        padding: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .card-number {
+        margin-bottom: 10px;
+    }
+}
+</style>
+<body>
+    <div class="route-contenedor">
+        <main class="main-route-card">
+            <h1 class="title-route-card">Etapa 2: autoevaluación</h1> 
+            <img class="route-img-card" src="Img/ruta-autoevaluacion-acreditacion.jpg" alt="png">  
+            
+            <!-- Cartas numeradas -->
+            <div class="route-card">
+                <div class="card-number">1</div>
+                <div class="card-content">
+                    <h2>Planeación</h2>
+                    <p>Formulación e instalación del modelo institucional de autoevaluación. Definición de equipos de trabajo.</p>
+                </div>
+            </div>
+            
+            <div class="route-card">
+                <div class="card-number">2</div>
+                <div class="card-content">
+                    <h2>Sensibilización</h2>
+                    <p>Inducción y capacitación a los equipos. Plan de sensibilización a estudiantes, profesores, egresados, administrativos y aliados.</p>
+                </div>
+            </div>
+            
+            <div class="route-card">
+                <div class="card-number">3</div>
+                <div class="card-content">
+                    <h2>Ponderación y referentes de calidad</h2>
+                    <p>Construcción de significados comunes sobre los factores, características y aspectos a evaluar. Definición de la metodología de ponderación.</p>
+                </div>
+            </div>
+            
+            <div class="route-card">
+                <div class="card-number">4</div>
+                <div class="card-content">
+                    <h2>Gestión de la información</h2>
+                    <p>Recolección, clasificación y organización de la información por factor según las evidencias. Elaboración del primer documento general de autoevaluación.</p>
+                </div>
+            </div>
+            
+            <div class="route-card">
+                <div class="card-number">5</div>
+                <div class="card-content">
+                    <h2>Construcción de juicios</h2>
+                    <p>Talleres para el análisis y construcción de juicios de calidad. Visita de Pares Académicos Colaborativos para verificación de las condiciones de calidad.</p>
+                </div>
+            </div>
+            
+            <div class="route-card">
+                <div class="card-number">6</div>
+                <div class="card-content">
+                    <h2>Elaboración de informes de autoevaluación y planes</h2>
+                    <p>Elaboración documento "Informe de Autoevaluación con miras a la Acreditación Institucional".</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

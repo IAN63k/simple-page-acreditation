@@ -207,6 +207,90 @@
             fill: #fff;
             color: #00aec6;
         }
+
+        .route-contenedor {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-route-card {
+            width: 100%;
+        }
+
+        .route-img-card {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+
+        .route-img-card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s;
+        }
+
+        .route-card {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 20px;
+            background: #fff;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .route-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-number {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background-color: #00a9b7;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .card-content h2 {
+            color: #00a9b7;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .card-content p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+
+        @media screen and (max-width: 700px) {
+            .route-contenedor {
+                width: 100%;
+            }
+
+            .route-card {
+                padding: 15px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .card-number {
+                margin-bottom: 10px;
+            }
+        }
     </style>
 </head>
 
@@ -331,6 +415,68 @@
             </section>
             <section>
                 <h2>Etapa 2: Autoevaluación</h2>
+                <div class="route-contenedor">
+                    <div class="main-route-card">
+                        <img class="route-img-card"
+                            src="https://pascualbravo.edu.co/wp-content/uploads/2020/11/ruta-autoevaluacion-acreditacion.jpg"
+                            alt="png">
+
+                        <!-- Cartas numeradas -->
+                        <div class="route-card">
+                            <div class="card-number">1</div>
+                            <div class="card-content">
+                                <h2>Planeación</h2>
+                                <p>Formulación e instalación del modelo institucional de autoevaluación. Definición de
+                                    equipos de trabajo.</p>
+                            </div>
+                        </div>
+
+                        <div class="route-card">
+                            <div class="card-number">2</div>
+                            <div class="card-content">
+                                <h2>Sensibilización</h2>
+                                <p>Inducción y capacitación a los equipos. Plan de sensibilización a estudiantes,
+                                    profesores, egresados, administrativos y aliados.</p>
+                            </div>
+                        </div>
+
+                        <div class="route-card">
+                            <div class="card-number">3</div>
+                            <div class="card-content">
+                                <h2>Ponderación y referentes de calidad</h2>
+                                <p>Construcción de significados comunes sobre los factores, características y aspectos a
+                                    evaluar. Definición de la metodología de ponderación.</p>
+                            </div>
+                        </div>
+
+                        <div class="route-card">
+                            <div class="card-number">4</div>
+                            <div class="card-content">
+                                <h2>Gestión de la información</h2>
+                                <p>Recolección, clasificación y organización de la información por factor según las
+                                    evidencias. Elaboración del primer documento general de autoevaluación.</p>
+                            </div>
+                        </div>
+
+                        <div class="route-card">
+                            <div class="card-number">5</div>
+                            <div class="card-content">
+                                <h2>Construcción de juicios</h2>
+                                <p>Talleres para el análisis y construcción de juicios de calidad. Visita de Pares
+                                    Académicos Colaborativos para verificación de las condiciones de calidad.</p>
+                            </div>
+                        </div>
+
+                        <div class="route-card">
+                            <div class="card-number">6</div>
+                            <div class="card-content">
+                                <h2>Elaboración de informes de autoevaluación y planes</h2>
+                                <p>Elaboración documento "Informe de Autoevaluación con miras a la Acreditación
+                                    Institucional".</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </section>
     </main>

@@ -1,0 +1,24 @@
+# Simple Page Accreditation
+
+This project is a simple web page designed for accreditation purposes of the university Unicamacho. It provides a basic structure to showcase your credentials, achievements, and other relevant information.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/IAN63k/simple-page-acreditation
+    ```
+2. Navigate to the project directory:
+    ```sh
+    cd simple-page-accreditation
+    ```
+3. Open `index.html` in your preferred web browser.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

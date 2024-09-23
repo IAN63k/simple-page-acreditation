@@ -37,6 +37,9 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            min-height: 200vh;
+            padding: 15px;
+            max-height: 100%;
             position: relative;
         }
 
@@ -74,6 +77,268 @@
             background-color: #00aec6;
         }
 
+        .text-line {
+            border-bottom: 4px solid #00aec6;
+            width: 100px;
+            padding-bottom: 5px;
+        }
+
+        .d-flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .round-grafi {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color: inherit;
+            border-radius: 50%;
+            border: 8px solid #00557b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .round-item-right,
+        .round-item-left {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 8px solid #00557b;
+            background-color: #fff;
+            border-radius: 50%;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: bounceIn 1s;
+
+            svg {
+                width: 70%;
+                height: 70%;
+                animation: jello-vertical 1s bothb;
+                animation-delay: 4s;
+                cursor: pointer;
+
+                &:hover {
+                    animation: jello-vertical 1s both;
+                }
+            }
+
+            .line__age {
+                color: #00557b !important;
+            }
+
+            &:nth-child(1) {
+                top: 0;
+                left: 0;
+            }
+
+            &:nth-child(2) {
+                bottom: 0;
+                left: 0;
+            }
+
+            &:nth-child(3) {
+                bottom: 0;
+                right: 0;
+            }
+
+            &:nth-child(4) {
+                top: 0;
+                right: 0;
+            }
+        }
+
+        .txt-blue {
+            color: #00557b !important;
+            font-weight: bold !important;
+        }
+
+        .round-item-right:hover .container__line,
+        .round-item-left:hover .container__line {
+            display: flex;
+            animation: zoomInUp 1s;
+        }
+
+        .round-item-right span {
+            position: absolute;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00557b;
+            left: -40%;
+        }
+
+        .round-item-left span {
+            position: absolute;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00557b;
+            right: -40%;
+        }
+
+        .round-item-right .container__line,
+        .round-item-left .container__line {
+            position: absolute;
+            display: none;
+            width: 250px;
+            max-height: 300px;
+            min-height: 150px;
+            z-index: 2;
+            bottom: -70%;
+        }
+
+        .sx-top {
+            bottom: 120% !important;
+        }
+
+        .sx-bottom {
+            top: 120% !important;
+        }
+
+
+
+
+        .jello-vertical {
+            animation: jello-vertical .9s linear both;
+        }
+
+        @keyframes jello-vertical {
+            0% {
+                transform: scale3d(1, 1, 1);
+            }
+
+            30% {
+                transform: scale3d(.75, 1.25, 1);
+            }
+
+            40% {
+                transform: scale3d(1.25, .75, 1);
+            }
+
+            50% {
+                transform: scale3d(.85, 1.15, 1);
+            }
+
+            65% {
+                transform: scale3d(1.05, .95, 1);
+            }
+
+            75% {
+                transform: scale3d(.95, 1.05, 1);
+            }
+
+            100% {
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        .bounceIn {
+            -webkit-animation-name: bounceIn;
+            animation-name: bounceIn;
+            -webkit-animation-duration: .75s;
+            animation-duration: .75s;
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+
+        @-webkit-keyframes bounceIn {
+
+            0%,
+            20%,
+            40%,
+            60%,
+            80%,
+            100% {
+                -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+                transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            }
+
+            0% {
+                opacity: 0;
+                -webkit-transform: scale3d(.3, .3, .3);
+                transform: scale3d(.3, .3, .3);
+            }
+
+            20% {
+                -webkit-transform: scale3d(1.1, 1.1, 1.1);
+                transform: scale3d(1.1, 1.1, 1.1);
+            }
+
+            40% {
+                -webkit-transform: scale3d(.9, .9, .9);
+                transform: scale3d(.9, .9, .9);
+            }
+
+            60% {
+                opacity: 1;
+                -webkit-transform: scale3d(1.03, 1.03, 1.03);
+                transform: scale3d(1.03, 1.03, 1.03);
+            }
+
+            80% {
+                -webkit-transform: scale3d(.97, .97, .97);
+                transform: scale3d(.97, .97, .97);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        @keyframes bounceIn {
+
+            0%,
+            20%,
+            40%,
+            60%,
+            80%,
+            100% {
+                -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+                transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            }
+
+            0% {
+                opacity: 0;
+                -webkit-transform: scale3d(.3, .3, .3);
+                transform: scale3d(.3, .3, .3);
+            }
+
+            20% {
+                -webkit-transform: scale3d(1.1, 1.1, 1.1);
+                transform: scale3d(1.1, 1.1, 1.1);
+            }
+
+            40% {
+                -webkit-transform: scale3d(.9, .9, .9);
+                transform: scale3d(.9, .9, .9);
+            }
+
+            60% {
+                opacity: 1;
+                -webkit-transform: scale3d(1.03, 1.03, 1.03);
+                transform: scale3d(1.03, 1.03, 1.03);
+            }
+
+            80% {
+                -webkit-transform: scale3d(.97, .97, .97);
+                transform: scale3d(.97, .97, .97);
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
         .container__line {
             position: relative;
             width: 450px;
@@ -88,6 +353,34 @@
             justify-content: flex-start;
             align-items: flex-start;
             border-radius: 10px;
+            animation: zoomInUp 1s;
+        }
+
+        .zoomInUp {
+            -webkit-animation-name: zoomInUp;
+            animation-name: zoomInUp;
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+
+        @keyframes zoomInUp {
+            0% {
+                opacity: 0;
+                -webkit-transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
+                transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
+                -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+                animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+            }
+
+            60% {
+                opacity: 1;
+                -webkit-transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+                transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+                -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+                animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+            }
         }
 
         .container__line a {
@@ -207,6 +500,8 @@
             fill: #fff;
             color: #00aec6;
         }
+
+        /* jhoan */
 
         .route-contenedor {
             width: 100%;
@@ -350,6 +645,97 @@
 
         <section class="principal_content">
             <section>
+                <h2 class="text-line">Etapas</h2>
+                <div class="d-flex-center">
+                    <figure class="round-grafi">
+                        <div class="round-item-right">
+                            <span>1</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M6 4C7.67 2.75 9.75 2 12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 10.19 2.47999 8.48999 3.32999 7.01999L12 12"
+                                    stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path opacity="0.4"
+                                    d="M6.82999 8.95999C6.29999 9.84999 6 10.89 6 12C6 15.31 8.69 18 12 18C15.31 18 18 15.31 18 12C18 8.69 15.31 6 12 6C11.09 6 10.22 6.20001 9.45001 6.57001"
+                                    stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            <div class="container__line sx-bottom">
+                                <h2 class="line__age">Condiciones iniciales</h2>
+                                <p>Diciembre 2018 - Julio 2020</p>
+                            </div>
+                        </div>
+                        <div class="round-item-right">
+                            <span>2</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.0002 22.6298C11.3302 22.6298 10.6502 22.4798 10.1202 22.1698L4.62023 18.9998C2.38023 17.4898 2.24023 17.2598 2.24023 14.8898V9.1098C2.24023 6.7398 2.37023 6.5098 4.57023 5.0198L10.1102 1.8198C11.1602 1.2098 12.8102 1.2098 13.8602 1.8198L19.3802 4.9998C21.6202 6.5098 21.7602 6.7398 21.7602 9.1098V14.8798C21.7602 17.2498 21.6302 17.4798 19.4302 18.9698L13.8902 22.1698C13.3502 22.4798 12.6702 22.6298 12.0002 22.6298ZM12.0002 2.8698C11.5802 2.8698 11.1702 2.9498 10.8802 3.1198L5.38023 6.2998C3.75023 7.3998 3.75023 7.3998 3.75023 9.1098V14.8798C3.75023 16.5898 3.75023 16.5898 5.42023 17.7198L10.8802 20.8698C11.4702 21.2098 12.5402 21.2098 13.1302 20.8698L18.6302 17.6898C20.2502 16.5898 20.2502 16.5898 20.2502 14.8798V9.1098C20.2502 7.3998 20.2502 7.3998 18.5802 6.2698L13.1202 3.1198C12.8302 2.9498 12.4202 2.8698 12.0002 2.8698Z"
+                                    fill="#292D32" />
+                                <path
+                                    d="M12 15.75C9.93 15.75 8.25 14.07 8.25 12C8.25 9.93 9.93 8.25 12 8.25C14.07 8.25 15.75 9.93 15.75 12C15.75 14.07 14.07 15.75 12 15.75ZM12 9.75C10.76 9.75 9.75 10.76 9.75 12C9.75 13.24 10.76 14.25 12 14.25C13.24 14.25 14.25 13.24 14.25 12C14.25 10.76 13.24 9.75 12 9.75Z"
+                                    fill="#292D32" />
+                            </svg>
+                            <div class="container__line sx-top">
+                                <h2 class="line__age">Autoevaluación</h2>
+                                <p>Enero 2020 - Junio 2021</p>
+                            </div>
+                        </div>
+                        <div class="round-item-left">
+                            <span>3</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21.9301 6.76001L18.5601 20.29C18.3201 21.3 17.4201 22 16.3801 22H3.24013C1.73013 22 0.650145 20.5199 1.10015 19.0699L5.31014 5.55005C5.60014 4.61005 6.47015 3.95996 7.45015 3.95996H19.7501C20.7001 3.95996 21.4901 4.53997 21.8201 5.33997C22.0101 5.76997 22.0501 6.26001 21.9301 6.76001Z"
+                                    stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" />
+                                <path d="M16 22H20.78C22.07 22 23.08 20.91 22.99 19.62L22 6" stroke="#292D32"
+                                    stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M9.68018 6.38L10.7202 2.06006" stroke="#292D32" stroke-width="1.5"
+                                    stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M16.3799 6.39001L17.3199 2.05005" stroke="#292D32" stroke-width="1.5"
+                                    stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M7.7002 12H15.7002" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M6.7002 16H14.7002" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <div class="container__line sx-top">
+                                <h2 class="line__age">Evaluación Externa o de pares</h2>
+                                <p>Julio 2021 - Diciembre 2021</p>
+                            </div>
+
+                        </div>
+                        <div class="round-item-left">
+                            <span>4</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.3701 8.88H17.6201" stroke="#292D32" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M6.37988 8.88L7.12988 9.63L9.37988 7.38" stroke="#292D32" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M12.3701 15.88H17.6201" stroke="#292D32" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M6.37988 15.88L7.12988 16.63L9.37988 14.38" stroke="#292D32" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M2 12.95V15C2 20 4 22 9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9"
+                                    stroke="#292D32" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            <div class="container__line sx-bottom">
+                                <h2 class="line__age">Evaluación CNA</h2>
+                                <p>Febrero 2022 - Julio 2022</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h2 class="txt-blue">Lineamientos CNA</h2>
+                        </div>
+
+                    </figure>
+                </div>
+            </section>
+            <section>
                 <h2>Etapa 1: Condiciones Iniciales 2018</h2>
                 <div class="wrapper__timeLine">
                     <div class="container__line">
@@ -492,8 +878,11 @@
         window.addEventListener('scroll', () => {
             let scroll = window.scrollY;
             let height = document.body.scrollHeight - window.innerHeight;
-            let percent = (scroll / height) * 100;
+            let percent = (scroll / height) * 300;
             lineScroll.style.height = `${percent}%`;
+            if (scroll > 370) {
+                console.log('scroll');
+            }
         });
     </script>
 </body>

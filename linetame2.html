@@ -37,468 +37,432 @@ tenemos informacion no li hice solo se paqueto (Amo los gatos 😺)
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    <title>Línea de Tiempo</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-      }
 
-      .sectionno {
-        height: 500vh;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <title>Línea de Tiempo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .sectionno {
+      height: 500vh;
+    }
+
+    #sectionline2 {
+      height: 700px;
+      padding: 30px;
+      overflow: hidden;
+    }
+
+    .line {
+      width: 100%;
+      display: flex;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+
+    .bottoncont {
+      display: flex;
+      align-items: center;
+      margin: 30px 0;
+      z-index: 2;
+      position: relative;
+    }
+
+    .bottoncont hr {
+      z-index: -1;
+      position: absolute;
+      width: 100%;
+      margin: 0;
+      background: #0e9db2;
+      height: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .botton-control img {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      transition: scale 0.5s linear;
+    }
+
+    .botton-control img:hover {
+      scale: 1.1;
+    }
+
+    #cardContainer {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      transition: opacity 0.5s ease;
+      position: relative;
+      /* Para el efecto de pausa */
+    }
+
+    .year-selector {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .year-circle {
+      width: 50px;
+      height: 50px;
+      background: #0e9db2;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      cursor: pointer;
+      margin: 0 50px;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .active-year {
+      transform: scale(1.2);
+      background: #007a8c;
+    }
+
+    .card  {
+      width: 300px;
+      background: #bebebe;
+      padding: 20px;
+      border-radius: 5px;
+      margin: 10px;
+      flex-shrink: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .card.show {
+      opacity: 1;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      border-radius: 5px;
+    }
+
+    .card h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 10px 0;
+      color: #ffffff;
+    }
+
+    .card p {
+      color: #ffffff;
+    }
+
+    @media only screen and (max-width: 600px) {
+      body {
+        background-color: lightblue;
       }
 
       #sectionline2 {
-        height: 700px;
-        padding: 30px;
-        overflow: hidden;
-      }
-
-      .tittle {
-        width: 100%;
-        display: grid;
-        justify-content: start;
-      }
-
-      .tittle h2 {
-        text-align: left;
-        color: #4b4a49;
-      }
-
-      .tittle hr {
-        width: 280px;
-        margin: 0;
-        background: #0e9db2;
-        height: 5px;
-        border: none;
-        border-radius: 5px;
-      }
-
-      .line {
-        width: 100%;
-        display: flex;
-        margin-bottom: 20px;
-        justify-content: center;
+        height: auto;
       }
 
       .bottoncont {
-        display: flex;
-        align-items: center;
-        margin: 30px 0;
-        z-index: 2;
-        position: relative;
-      }
-
-      .bottoncont hr {
-        z-index: -1;
-        position: absolute;
         width: 100%;
-        margin: 0;
-        background: #0e9db2;
-        height: 5px;
-        border: none;
-        border-radius: 5px;
-      }
-
-      .botton img {
-        cursor: pointer;
-        width: 40px;
-        height: 40px;
-        transition: scale 0.5s linear;
-      }
-
-      .botton img:hover {
-        scale: 1.1;
-      }
-
-      hr {
-        width: 100%;
-        height: 5px;
-        background: #0e9db2;
-        border: none;
-        border-radius: 5px;
-        margin: 10px 0;
-      }
-
-      #cardContainer {
-        display: flex;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        transition: opacity 0.5s ease;
-        position: relative; /* Para el efecto de pausa */
-      }
-
-      .year-selector {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
       }
 
       .year-circle {
-        width: 50px;
-        height: 50px;
-        background: #0e9db2;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        cursor: pointer;
-        margin: 0 50px;
-        transition: transform 0.3s, background 0.3s;
+        margin: 0 5px;
       }
 
-      .active-year {
-        transform: scale(1.2);
-        background: #007a8c;
+      .line {
+        width: 90%;
+        margin: auto;
+        display: block;
+        margin-bottom: 20px;
       }
+    }
+  </style>
+</head>
 
-      .card {
-        width: 300px;
-        background: #bebebe;
-        padding: 20px;
-        border-radius: 5px;
-        margin: 10px;
-        flex-shrink: 0;
-        opacity: 0;
-        transition: opacity 0.5s ease;
-      }
+<body>
 
-      .card.show {
-        opacity: 1;
-      }
+  <section class="sectionno"></section>
+  <section id="sectionline2">
+    <div class="line" data-aos="zoom-in">
+      <div class="bottoncont">
+        <div class="botton-control" onclick="scrollCards(-1)">
+          <img src="svg/icons8-left-64.png" alt="Izquierda" />
+        </div>
+        <hr />
+        <div class="year-selector" id="yearSelector"></div>
+        <div class="botton-control" onclick="scrollCards(1)">
+          <img src="svg/icons8-right-64.png" alt="Derecha" />
+        </div>
+      </div>
+    </div>
 
-      .card img {
-        width: 100%;
-        height: 200px;
-        border-radius: 5px;
-      }
+    <div class="animate__animated animate__fadeInUp" data-aos="fade-up" id="cardContainer"></div>
+  </section>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script>
+    const contenido = {
+      2020: [
+        {
+          titulo: "Evento 2020 - 1",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2020 - 1",
+        },
+        {
+          titulo: "Evento 2020 - 2",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2020 - 2",
+        },
+        {
+          titulo: "Evento 2020 - 3",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2020 - 3",
+        },
+        {
+          titulo: "Evento 2020 - 1",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2020 - 1",
+        },
+        {
+          titulo: "Evento 2020 - 2",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2020 - 2",
+        },
+        {
+          titulo: "Evento 2020 - 3",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2020 - 3",
+        },
+      ],
+      2021: [
+        {
+          titulo: "Evento 2021 - 1",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2021 - 1",
+        },
+        {
+          titulo: "Evento 2021 - 2",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2021 - 2",
+        },
+        {
+          titulo: "Evento 2021 - 3",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2021 - 3",
+        },
+        {
+          titulo: "Evento 2021 - 1",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2021 - 1",
+        },
+        {
+          titulo: "Evento 2021 - 2",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2021 - 2",
+        },
+        {
+          titulo: "Evento 2021 - 3",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2021 - 3",
+        },
+      ],
+      2022: [
+        {
+          titulo: "Evento 2022 - 1",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2022 - 1",
+        },
+        {
+          titulo: "Evento 2022 - 2",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2022 - 2",
+        },
+        {
+          titulo: "Evento 2022 - 3",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2022 - 3",
+        },
+        {
+          titulo: "Evento 2022 - 1",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2022 - 1",
+        },
+        {
+          titulo: "Evento 2022 - 2",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2022 - 2",
+        },
+        {
+          titulo: "Evento 2022 - 3",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2022 - 3",
+        },
+      ],
+      2023: [
+        {
+          titulo: "Evento 2023 - 1",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2023 - 1",
+        },
+        {
+          titulo: "Evento 2023 - 2",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2023 - 2",
+        },
+        {
+          titulo: "Evento 2023 - 3",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2023 - 3",
+        },
+        {
+          titulo: "Evento 2023 - 1",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2023 - 1",
+        },
+        {
+          titulo: "Evento 2023 - 2",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2023 - 2",
+        },
+        {
+          titulo: "Evento 2023 - 3",
+          contenido:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2023 - 3",
+        },
+      ],
+    };
 
-      .card h2 {
-        font-size: 24px;
-        font-weight: bold;
-        margin: 10px 0;
-        color: #ffffff;
-      }
+    let currentYearIndex = 0;
+    const years = Object.keys(contenido);
+    let autoScrollInterval;
 
-      .card p {
-        color: #ffffff;
-      }
+    function displayCards(year) {
+      const yearCards = contenido[year];
+      const cardContainer = document.getElementById("cardContainer");
+      cardContainer.innerHTML = ""; // Limpiar el contenedor
 
-      @media only screen and (max-width: 600px) {
-        body {
-          background-color: lightblue;
-        }
-
-        #sectionline2 {
-          height: auto;
-        }
-
-        .bottoncont {
-          width: 100%;
-        }
-
-        .year-circle {
-          margin: 0 5px;
-        }
-
-        .line {
-          width: 90%;
-          margin: auto;
-          display: block;
-          margin-bottom: 20px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <script>
-      const contenido = {
-        2020: [
-          {
-            titulo: "Evento 2020 - 1",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2020 - 1",
-          },
-          {
-            titulo: "Evento 2020 - 2",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2020 - 2",
-          },
-          {
-            titulo: "Evento 2020 - 3",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2020 - 3",
-          },
-          {
-            titulo: "Evento 2020 - 1",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2020 - 1",
-          },
-          {
-            titulo: "Evento 2020 - 2",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2020 - 2",
-          },
-          {
-            titulo: "Evento 2020 - 3",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2020 - 3",
-          },
-        ],
-        2021: [
-          {
-            titulo: "Evento 2021 - 1",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2021 - 1",
-          },
-          {
-            titulo: "Evento 2021 - 2",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2021 - 2",
-          },
-          {
-            titulo: "Evento 2021 - 3",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2021 - 3",
-          },
-          {
-            titulo: "Evento 2021 - 1",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2021 - 1",
-          },
-          {
-            titulo: "Evento 2021 - 2",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2021 - 2",
-          },
-          {
-            titulo: "Evento 2021 - 3",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2021 - 3",
-          },
-        ],
-        2022: [
-          {
-            titulo: "Evento 2022 - 1",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2022 - 1",
-          },
-          {
-            titulo: "Evento 2022 - 2",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2022 - 2",
-          },
-          {
-            titulo: "Evento 2022 - 3",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2022 - 3",
-          },
-          {
-            titulo: "Evento 2022 - 1",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2022 - 1",
-          },
-          {
-            titulo: "Evento 2022 - 2",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2022 - 2",
-          },
-          {
-            titulo: "Evento 2022 - 3",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2022 - 3",
-          },
-        ],
-        2023: [
-          {
-            titulo: "Evento 2023 - 1",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2023 - 1",
-          },
-          {
-            titulo: "Evento 2023 - 2",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2023 - 2",
-          },
-          {
-            titulo: "Evento 2023 - 3",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2023 - 3",
-          },
-          {
-            titulo: "Evento 2023 - 1",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2023 - 1",
-          },
-          {
-            titulo: "Evento 2023 - 2",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2023 - 2",
-          },
-          {
-            titulo: "Evento 2023 - 3",
-            contenido:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur unde deleniti vitae quos facere totam ad optio quisquam perferendis. Architecto, rem. Et ducimus asperiores libero eligendi eveniet? Aut, necessitatibus! 2023 - 3",
-          },
-        ],
-      };
-
-      let currentYearIndex = 0;
-      const years = Object.keys(contenido);
-      let autoScrollInterval;
-
-      function displayCards(year) {
-        const yearCards = contenido[year];
-        const cardContainer = document.getElementById("cardContainer");
-        cardContainer.innerHTML = ""; // Limpiar el contenedor
-
-        yearCards.forEach((item) => {
-          const card = document.createElement("div");
-          card.classList.add("card");
-          card.innerHTML = `
+      yearCards.forEach((item) => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
                     <img src="https://mala.ae/wp-content/uploads/2023/02/img.jpg" alt="" />
                     <h2>${item.titulo}</h2>
                     <p>${item.contenido}</p>
                 `;
-          card.addEventListener("mouseenter", pauseAutoScroll);
-          card.addEventListener("mouseleave", resumeAutoScroll);
-          cardContainer.appendChild(card);
-        });
+        card.addEventListener("mouseenter", pauseAutoScroll);
+        card.addEventListener("mouseleave", resumeAutoScroll);
+        cardContainer.appendChild(card);
+      });
 
-        updateYearCircles(year);
-        animateYearChange();
+      updateYearCircles(year);
+      animateYearChange();
 
-        const cards = cardContainer.children;
-        Array.from(cards).forEach((card, index) => {
-          setTimeout(() => {
-            card.classList.add("show");
-          }, index * 100);
-        });
-      }
+      const cards = cardContainer.children;
+      Array.from(cards).forEach((card, index) => {
+        setTimeout(() => {
+          card.classList.add("show");
+        }, index * 100);
+      });
+    }
 
-      function animateYearChange() {
-        const yearCircles = document.querySelectorAll(".year-circle");
-        yearCircles.forEach((circle, index) => {
-          circle.classList.remove("active-year");
-          if (index === currentYearIndex) {
-            circle.classList.add("active-year");
-          }
-        });
-      }
-
-      function updateYearCircles(year) {
-        const yearSelector = document.getElementById("yearSelector");
-        const yearCircles = yearSelector.children;
-        for (let i = 0; i < yearCircles.length; i++) {
-          yearCircles[i].textContent = years[i];
+    function animateYearChange() {
+      const yearCircles = document.querySelectorAll(".year-circle");
+      yearCircles.forEach((circle, index) => {
+        circle.classList.remove("active-year");
+        if (index === currentYearIndex) {
+          circle.classList.add("active-year");
         }
+      });
+    }
+
+    function updateYearCircles(year) {
+      const yearSelector = document.getElementById("yearSelector");
+      const yearCircles = yearSelector.children;
+      for (let i = 0; i < yearCircles.length; i++) {
+        yearCircles[i].textContent = years[i];
       }
+    }
 
-      function updateYear() {
-        const year = years[currentYearIndex];
-        displayCards(year);
-      }
+    function updateYear() {
+      const year = years[currentYearIndex];
+      displayCards(year);
+    }
 
-      function scrollCards(direction) {
-        currentYearIndex += direction;
+    function scrollCards(direction) {
+      currentYearIndex += direction;
 
-        // Cambiar al primer año si se supera el último
-        if (currentYearIndex < 0) currentYearIndex = years.length - 1;
-        if (currentYearIndex >= years.length) currentYearIndex = 0;
+      // Cambiar al primer año si se supera el último
+      if (currentYearIndex < 0) currentYearIndex = years.length - 1;
+      if (currentYearIndex >= years.length) currentYearIndex = 0;
 
-        updateYear();
-        scrollToCurrentYear();
-      }
+      updateYear();
+      scrollToCurrentYear();
+    }
 
-      function scrollToCurrentYear() {
-        const cardContainer = document.getElementById("cardContainer");
-        const cards = cardContainer.children;
-        const cardWidth = cards[0].offsetWidth;
-        cardContainer.scrollTo({
-          left: cardWidth * currentYearIndex,
-          behavior: "smooth",
-        });
-      }
+    function scrollToCurrentYear() {
+      const cardContainer = document.getElementById("cardContainer");
+      const cards = cardContainer.children;
+      const cardWidth = cards[0].offsetWidth;
+      cardContainer.scrollTo({
+        left: cardWidth * currentYearIndex,
+        behavior: "smooth",
+      });
+    }
 
-      function selectYear(year) {
-        currentYearIndex = years.indexOf(year);
-        updateYear();
-        scrollToCurrentYear();
-        resetAutoScroll();
-      }
+    function selectYear(year) {
+      currentYearIndex = years.indexOf(year);
+      updateYear();
+      scrollToCurrentYear();
+      resetAutoScroll();
+    }
 
-      function createYearCircles() {
-        const yearSelector = document.getElementById("yearSelector");
-        years.forEach((year) => {
-          const yearCircle = document.createElement("div");
-          yearCircle.classList.add("year-circle");
-          yearCircle.textContent = year;
-          yearCircle.onclick = () => selectYear(year);
-          yearSelector.appendChild(yearCircle);
-        });
-      }
+    function createYearCircles() {
+      const yearSelector = document.getElementById("yearSelector");
+      years.forEach((year) => {
+        const yearCircle = document.createElement("div");
+        yearCircle.classList.add("year-circle");
+        yearCircle.textContent = year;
+        yearCircle.onclick = () => selectYear(year);
+        yearSelector.appendChild(yearCircle);
+      });
+    }
 
-      function startAutoScroll() {
-        autoScrollInterval = setInterval(() => scrollCards(1), 3000); //tiempo para pasar a otro año
-      }
+    function startAutoScroll() {
+      autoScrollInterval = setInterval(() => scrollCards(1), 3000); //tiempo para pasar a otro año
+    }
 
-      function pauseAutoScroll() {
-        clearInterval(autoScrollInterval);
-      }
+    function pauseAutoScroll() {
+      clearInterval(autoScrollInterval);
+    }
 
-      function resumeAutoScroll() {
-        startAutoScroll();
-      }
+    function resumeAutoScroll() {
+      startAutoScroll();
+    }
 
-      function resetAutoScroll() {
-        pauseAutoScroll();
-        startAutoScroll();
-      }
+    function resetAutoScroll() {
+      pauseAutoScroll();
+      startAutoScroll();
+    }
 
-      window.onload = () => {
-        createYearCircles();
-        updateYear();
-        startAutoScroll();
-      };
-    </script>
-    <section class="sectionno"></section>
-    <section id="sectionline2">
-      <div class="tittle">
-        <h2 data-aos="fade-right">La Acreditación en imágenes</h2>
-        <hr />
-      </div>
+    window.onload = () => {
+      createYearCircles();
+      updateYear();
+      startAutoScroll();
+    };
+  </script>
+</body>
 
-      <div class="line" data-aos="zoom-in">
-        <div class="bottoncont">
-          <div class="botton" onclick="scrollCards(-1)">
-            <img src="svg/icons8-left-64.png" alt="Izquierda" />
-          </div>
-          <hr />
-          <div class="year-selector" id="yearSelector"></div>
-          <div class="botton" onclick="scrollCards(1)">
-            <img src="svg/icons8-right-64.png" alt="Derecha" />
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="animate__animated animate__fadeInUp"
-        data-aos="fade-up"
-        id="cardContainer"
-      ></div>
-    </section>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
-  </body>
 </html>

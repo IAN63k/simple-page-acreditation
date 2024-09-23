@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -10,6 +10,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -20,6 +21,7 @@
             width: 100%;
             background-color: #fff;
             font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+            scroll-behavior: smooth;
         }
 
         main {
@@ -37,7 +39,7 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
-            min-height: 200vh;
+            min-height: 500vh;
             padding: 15px;
             max-height: 100%;
             position: relative;
@@ -77,9 +79,11 @@
             background-color: #00aec6;
         }
 
-        .text-line {
+        .text-line::after {
+            content: '';
+            display: block;
             border-bottom: 4px solid #00aec6;
-            width: 100px;
+            max-width: 200px;
             padding-bottom: 5px;
         }
 
@@ -586,6 +590,44 @@
                 margin-bottom: 10px;
             }
         }
+
+        .image_reference {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .image_reference img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s;
+        }
+
+        .image_reference img:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s;
+        }
+
+        section p {
+            margin: 10px 0;
+        }
+
+        .d-flex-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 50%;
+            height: auto;
+            margin: 20px 0;
+
+            svg {
+                width: 80px;
+                height: 80px;
+            }
+        }
     </style>
 </head>
 
@@ -597,31 +639,31 @@
                 <div class="col-1_table">
                     <ul>
                         <li>
-                            <a href="">
+                            <a href="#etapa-1">
                                 <span>1.</span>
                                 <span>Etapa 1: Condiciones Iniciales</span>
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="#etapa-2">
                                 <span>2.</span>
                                 <span>Etapa 2: Autoevaluación</span>
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="#etapa-3">
                                 <span>3.</span>
                                 <span>Etapa 3: Evaluación Externa</span>
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="#etapa-4">
                                 <span>4.</span>
                                 <span>Etapa 4: Evaluación CNA</span>
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="#etapa-5">
                                 <span>5.</span>
                                 <span>Equipos de factor</span>
                             </a>
@@ -735,7 +777,7 @@
                     </figure>
                 </div>
             </section>
-            <section>
+            <section id="etapa-1">
                 <h2>Etapa 1: Condiciones Iniciales 2018</h2>
                 <div class="wrapper__timeLine">
                     <div class="container__line">
@@ -799,7 +841,7 @@
                     <div class="line_scroll"></div>
                 </div>
             </section>
-            <section>
+            <section id="etapa-2">
                 <h2>Etapa 2: Autoevaluación</h2>
                 <div class="route-contenedor">
                     <div class="main-route-card">
@@ -864,8 +906,39 @@
                     </div>
                 </div>
             </section>
-            <section>
+            <section id="etapa-3">
+                <h2>Etapa 3: Evaluación Externa</h2>
+                <p>Preparación y desarrollo de la visita de Pares designados por el CNA.</p>
+                <figure class="image_reference">
+                    <img src="https://pascualbravo.edu.co/wp-content/uploads/2021/08/etapa-3-acreditacion.jpg"
+                        alt="img-desc">
+                </figure>
+            </section>
+            <section id="etapa-4">
                 <h2>Etapa 4: Evaluación CNA</h2>
+                <p>Gestión de información adicional antes de la evaluación del CNA. Comentarios o concepto final.</p>
+                <a href="#" class="d-flex-row">
+                    <figure>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 11V17L11 15" stroke="#292D32" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M9 17L7 15" stroke="#292D32" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M22 10V15C22 20 20 22 15 22H9C4 22 2 20 2 15V9C2 4 4 2 9 2H14" stroke="#292D32"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M22 10H18C15 10 14 9 14 6V2L22 10Z" stroke="#292D32" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </figure>
+                    <p>Conoce el informe de evaluación externa con fines de Acreditación Institucional, realizado por
+                        los Pares del CNA.</p>
+                </a>
+            </section>
+            <section id="etapa-5">
+                <h2>Equipos de factor</h2>
+            </section>
+            <section>
+                <h2 class="text-line">La Acreditación en imágenes</h2>
             </section>
         </section>
     </main>
@@ -878,11 +951,9 @@
         window.addEventListener('scroll', () => {
             let scroll = window.scrollY;
             let height = document.body.scrollHeight - window.innerHeight;
-            let percent = (scroll / height) * 300;
-            lineScroll.style.height = `${percent}%`;
-            if (scroll > 370) {
-                console.log('scroll');
-            }
+            let percent = (scroll / height) * 800;
+            let newHeight = Math.min(percent, 2000); // Limitar la altura máxima a 400px
+            lineScroll.style.height = `${newHeight}px`;
         });
     </script>
 </body>

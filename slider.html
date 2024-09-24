@@ -6,93 +6,172 @@
     <title>Document</title>
     <style>
         *{
-
-            
-            margin: 0;
-            padding: 0;
+            box-sizing: border-box;
         }
-        h1{
-            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-            color: #4E4E4E;
+        body{
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+       }
+        .miSlides{
+            display: none;
         }
-        .container{
+        img{
+            vertical-align: middle;
+        }
+        .slideshow-container{
+            max-width: 80%;
+            height: 500px; /* Fija la altura del contenedor */
             position: relative;
+            margin: auto;
+            overflow: hidden; /* Previene que las imágenes sobresalgan */
         }
-        .container .wrapper{
-            width: 60vw;
-            height: 75vh;
-            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
-            margin: 3rem auto;
-            overflow: hidden;
-        }
-        .container .wrapper-holder{
-            display: grid;
-            grid-template-columns: repeat(4, 100%);
-            height: 100%;
+        .slideshow-container img {
             width: 100%;
-            animation: slider 30s ease-in-out infinite alternate;
+            height: 100%; /* Ajusta las imágenes para ocupar todo el contenedor */
+            object-fit: cover; /* Recorta la imagen si es necesario */
         }
-        .container #slider-img-1{
-            background-image: url(https://bioeticaparatodos.com/wp-content/uploads/2017/11/Por_que%CC%81_creo_que_eres_persona.jpg);
-            background-position: center;
-        }
-        .container #slider-img-2{
-            background-image: url(https://imagenes.eltiempo.com/files/image_1200_600/files/fp/uploads/2024/03/19/65f9d492598ea.r_d.1079-279-5658.jpeg);
-            background-position: center;
-        }
-        .container #slider-img-3{
-            background-image: url(https://ctb.ku.edu/sites/default/files/chapter_files/chapter_27_section_2_edit_0.jpg);
-            background-position: center;
-        }
-        .container #slider-img-4{
-            background-image: url(https://familia.edu.mx/wp-content/uploads/2020/03/que-es-la-persona-2.jpg);
-            background-position: center;
-        }
-        .container .button-holder .button{
-            background-color: white;
-            width: 15px;
-            height: 15px;
-            border-radius: 15px;
-            display: inline-block;
-            margin: .3rem;
-        }
-        .container .button-holder{
+        .prev, .next{
+            cursor: pointer;
             position: absolute;
-            left: 45%;
-            bottom: 0%;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
         }
-        @keyframes slider {
-            0%{transform: translateX(0%);}
-            10%{transform: translateX(-100%);}
-            20%{transform: translateX(-100%);}
-            30%{transform: translateX(-200%);}
-            40%{transform: translateX(-200%);}
-            50%{transform: translateX(-200%);}
-            60%{transform: translateX(-300%);}
-            70%{transform: translateX(-300%);}
-            80%{transform: translateX(-300%);}
-            90%{transform: translateX(0%);}
-            100%{transform: translateX(0%);}
+        .next{
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover{
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .numbertext{
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+        .dot{
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active, .dot:hover{
+            background-color: #717171;
+        }
+        .fade{
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade{
+            from {opacity: .4;}
+            to {opacity: 1;}
+        }
+        @keyframes fade{
+            from {opacity: .4;}
+            to {opacity: 1;}
+        }
+
+        /*responsive*/
+        @media only screen and (max-width:300px){
+            .prev, .next{
+                font-size: 11px;
+            }
+            .dot{
+                height: 10px;
+                width: 10px;
+            }
+        }
+        @media only screen and (max-width:500px){
+            .prev, .next{
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Equipos de factor</h1>
-        <div class="wrapper">
-            <div class="wrapper-holder">
-                <div id="slider-img-1"></div>
-                <div id="slider-img-2"></div>
-                <div id="slider-img-3"></div>
-                <div id="slider-img-4"></div>
-            </div>
+    <div class="slideshow-container">
+        <div class="miSlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="https://pascualbravo.edu.co/wp-content/uploads/2020/09/factor2-estudiantes-1.png" width="100%">
         </div>
-        <div class="button-holder">
-            <a href="#slider-img-1" class="button"></a>
-            <a href="#slider-img-2" class="button"></a>
-            <a href="#slider-img-3" class="button"></a>
-            <a href="#slider-img-4" class="button"></a>
+        <div class="miSlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="https://i.blogs.es/0ca9a6/aa/1366_2000.jpeg" width="100%">
         </div>
+        <div class="miSlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="https://st.depositphotos.com/1016440/2534/i/450/depositphotos_25344733-stock-photo-sunrise-at-the-beach.jpg" width="100%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
+    <br>
+    <div style="text-align: center;">
+        <span class="dot" onclick="currentSlides(1)"></span>
+        <span class="dot" onclick="currentSlides(2)"></span>
+        <span class="dot" onclick="currentSlides(3)"></span>
+    </div>
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n){
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlides(n){
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n){
+            var i;
+            var slides = document.getElementsByClassName("miSlides");
+            var dots = document.getElementsByClassName("dot");
+            if(n > slides.length){slideIndex = 1;}
+            if(n < 1){slideIndex = slides.length;}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+        //Auto Slide
+        //var slideIndex = 0;
+        //showSlides();
+
+        //function showSlides(){
+        //    var i;
+        //    var slides = document.getElementsByClassName("miSlides");
+        //    for (i = 0; i < slides.length; i++){
+        //        slides[i].style.display = "none";
+        //    }
+        //    slideIndex++;
+        //    if(slideIndex > slides.length){
+        //        slideIndex = 1;
+        //    }
+        //    slides[slideIndex - 1].style.display = "block";
+        //    setTimeout(showSlides, 2000); //Cambiar cada 2 segundos
+        //}
+    </script>
 </body>
 </html>

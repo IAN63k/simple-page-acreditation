@@ -1117,7 +1117,7 @@
         window.addEventListener('scroll', () => {
             let scroll = window.scrollY;
             let height = document.body.scrollHeight - window.innerHeight;
-            let percent = (scroll / height) * 800;
+            let percent = (scroll / height) * 1800;
             let newHeight = Math.min(percent, 2000); // Limitar la altura máxima a 400px
             lineScroll.style.height = `${newHeight}px`;
         });
